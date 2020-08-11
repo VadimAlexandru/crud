@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "wtg-package/base": "1.1.13"
+
     },
     "require-dev": {
 
