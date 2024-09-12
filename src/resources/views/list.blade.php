@@ -107,7 +107,17 @@
   <link rel="stylesheet" href="{{ asset('vendor/backpack/crud/css/crud.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/backpack/crud/css/form.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/backpack/crud/css/list.css') }}">
-
+  <style>
+      tr.active-import-border {
+          border: 3px solid red !important;
+      }
+      tr.active-import-border td{
+          padding: 7px !important;
+      }
+      table.dataTable {
+          border-collapse: collapse !important;
+      }
+  </style>
   <!-- CRUD LIST CONTENT - crud_list_styles stack -->
   @stack('crud_list_styles')
 @endsection
@@ -122,3 +132,4 @@
   <!-- CRUD LIST CONTENT - crud_list_scripts stack -->
   @stack('crud_list_scripts')
 @endsection
+

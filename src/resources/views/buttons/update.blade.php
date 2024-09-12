@@ -2,7 +2,7 @@
 	@if (!$crud->model->translationEnabled())
 
 	<!-- Single edit button -->
-	<a href="{{ url($crud->route.'/'.$entry->getKey().'/edit') }}" class="btn btn-xs btn-default"><i class="fa fa-edit"></i> {{ trans('backpack::crud.edit') }}</a>
+	<a data-button-type="update" onclick="onNavigate(this)" href="{{ url($crud->route.'/'.$entry->getKey().'/edit') }}" class="btn btn-xs btn-default"><i class="fa fa-edit"></i> {{ trans('backpack::crud.edit') }}</a>
 
 	@else
 
@@ -23,3 +23,21 @@
 
 	@endif
 @endif
+
+<script>
+	if (typeof onNavigate != 'function') {
+		$("[data-button-type=update]").unbind('click');
+
+		function onNavigate(button) {
+			// ask for confirmation before deleting an item
+			// e.preventDefault();
+			document.querySelector('tr.active-import-border')?.classList.remove('active-import-border');
+			const parentTR = button.closest('tr');
+			if (parentTR) {
+				parentTR.classList.add('active-import-border');
+			}
+		}
+	}
+
+</script>
+
