@@ -55,6 +55,8 @@ https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"><
                     }
                 } ),
                 renderer: function ( api, rowIdx, columns ) {
+                	document.querySelector('.active-import-border')?.classList.remove('active-import-border', 'with-padding')
+                	document.querySelector('#crudTable tbody').querySelectorAll('tr')[rowIdx].classList.add('active-import-border',  'with-padding')
 
                   var data = $.map( columns, function ( col, i ) {
                       var columnHeading = crud.table.columns().header()[col.columnIndex];
